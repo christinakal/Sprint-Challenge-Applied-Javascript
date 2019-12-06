@@ -42,7 +42,7 @@ function Carousel(){
     imgArr.forEach( elem => {
       img = document.createElement('img');
       img.src = elem;
-      img.style.display = 'block';
+      //img.style.display = 'block';
       carousel.appendChild(img);
       console.log(img);
     })
@@ -59,3 +59,45 @@ function Carousel(){
 }
 
 Carousel();
+
+let slideIndex = 1;
+showCarousel(slideIndex);
+
+function showCarousel(n) {
+  let i;
+  var slides = document.querySelectorAll(".carousel > img");
+
+  if (n > slides.length) {
+    slideIndex = 1;
+  }
+  
+  if (n < 1) {
+    slideIndex = slides.length;
+  }
+
+  slides.forEach( item => {
+    item.style.display = "none";
+  })
+
+
+  slides[slideIndex - 1].style.display = "block";
+}
+
+function nextImg(n) {
+  showCarousel(slideIndex += n);
+}
+
+function currentImg(n) {
+  showCarousel(slideIndex = n);
+}
+
+const leftButton = document.querySelector('.left-button');
+const rightButton = document.querySelector('.right-button');
+
+leftButton.addEventListener('click', e => {
+  nextImg(-1);
+})
+
+rightButton.addEventListener('click', e => {
+  nextImg(1);
+})
