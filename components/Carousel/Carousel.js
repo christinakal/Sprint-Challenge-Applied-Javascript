@@ -44,7 +44,7 @@ function Carousel(){
       img.src = elem;
       //img.style.display = 'block';
       carousel.appendChild(img);
-      console.log(img);
+      //console.log(img);
     })
     
 

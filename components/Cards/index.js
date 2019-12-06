@@ -22,13 +22,13 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles')
   .then(function (response) {
     
     const articles = response.data.articles;
-    //console.log('DATA:', articles);
+    console.log('DATA:', articles);
 
     for (const key in articles) {
         const topics = articles[key];
 
         topics.forEach( elem => {
-            createArticle(elem);
+            createArticle(elem, key);
             //console.log(elem);
         })
     } 
@@ -40,12 +40,13 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles')
 
 
 
-function createArticle(articles){
+function createArticle(articles, key){
     const container = document.querySelector('.cards-container');
 
     //card
     const card = document.createElement('div');
     card.classList.add('card');
+    card.setAttribute('data-category', key);
     container.appendChild(card);
 
 
