@@ -17,7 +17,7 @@ axios.get('https://lambda-times-backend.herokuapp.com/topics')
     data.forEach( item => {
         createTab(item);
     });
-    console.log(data);
+
   })
   .catch(function (error) {
     // handle error
