@@ -29,7 +29,7 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles')
 
         topics.forEach( elem => {
             createArticle(elem);
-            console.log(elem);
+            //console.log(elem);
         })
     } 
   })
